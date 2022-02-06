@@ -5,8 +5,8 @@
 <div *ngIf="!router.url.includes('auth')" id="header">
   <img id="logo" src="assets/logo-with-text.svg">
   <div id="header-links">
-    <span class="header-link active">Главная</span>
-    <span class="header-link">Аналитика</span>
+    <span class="header-link" routerLink="dashboard" routerLinkActive="active">Главная</span>
+    <span class="header-link" routerLink="analytics" routerLinkActive="active">Аналитика</span>
     <span class="header-link">Поиск</span>
   </div>
   <div id="header-profile">

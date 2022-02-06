@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthGuardService} from "./auth/auth-guard.service";
 import {AuthService} from "./auth/auth.service";
+import {HttpClientModule} from "@angular/common/http";
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {AuthService} from "./auth/auth.service";
     SignUpComponent,
     SignUpCodeComponent,
     AuthComponent,
-    DashboardComponent
+    DashboardComponent,
+    AnalyticsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,14 +32,16 @@ import {AuthService} from "./auth/auth.service";
       {path: 'auth/sign-up', component: SignUpComponent},
       {path: 'auth/sign-up-code', component: SignUpCodeComponent},
       {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
+      {path: 'analytics', component: AnalyticsComponent, canActivate: [AuthGuardService]},
       {path: '**', redirectTo: 'dashboard', pathMatch: 'full'},
     ]),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuardService,
   ],
   bootstrap: [AppComponent]
 })
