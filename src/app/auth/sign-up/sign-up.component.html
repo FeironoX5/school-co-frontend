@@ -1,0 +1,19 @@
+<div class="nav-but-container">
+  <button class="nav-but" routerLink="/auth/sign-in">Уже есть аккаунт?</button>
+  <button class="nav-but" routerLink="/auth/sign-up-code">У меня есть код</button>
+</div>
+
+<h1 class="form-title">Регистрация</h1>
+<form [formGroup]="authForm" class="form">
+  <div *ngIf="step == 0">
+    <input formControlName="fio" placeholder="ФИО">
+    <input formControlName="school" placeholder="Школа">
+  </div>
+  <div *ngIf="step == 1">
+    <input formControlName="email" placeholder="Почта">
+    <input formControlName="password" placeholder="Пароль">
+  </div>
+</form>
+
+<span class="next-but left" (click)="back()">Назад</span>
+<span class="next-but right" [ngClass]="{unactive: _isInvalid}" (click)="next()">Дальше</span>

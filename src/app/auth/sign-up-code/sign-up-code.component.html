@@ -1,0 +1,24 @@
+<div class="nav-but-container">
+  <button class="nav-but" routerLink="/auth/sign-in">Уже есть аккаунт?</button>
+  <button class="nav-but" routerLink="/auth/sign-up">У меня нет кода</button>
+
+</div>
+
+<h1 class="form-title">Регистрация</h1>
+<div id="code">
+  <input id="c0" placeholder="_" type="number" autocomplete="0" (keydown)="checkBackspace(0, $event)"
+         (input)="focusNext(0)"
+         [(ngModel)]="code[0]">
+  <input id="c1" placeholder="_" type="number" autocomplete="0" (keydown)="checkBackspace(1, $event)"
+         (input)="focusNext(1)"
+         [(ngModel)]="code[1]">
+  <input id="c2" placeholder="_" type="number" autocomplete="0" (keydown)="checkBackspace(2, $event)"
+         (input)="focusNext(2)"
+         [(ngModel)]="code[2]">
+  <input id="c3" placeholder="_" type="number" autocomplete="0" (keydown)="checkBackspace(3, $event)"
+         (input)="focusNext(3)"
+         [(ngModel)]="code[3]">
+</div>
+
+<span class="next-but left" (click)="back()">Назад</span>
+<span class="next-but right" [ngClass]="{unactive: code.join('').length != 4}" (click)="next()">Дальше</span>

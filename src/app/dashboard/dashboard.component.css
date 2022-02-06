@@ -1,0 +1,9 @@
+#action-button {
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 30px;
+  padding: 10px 30px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}

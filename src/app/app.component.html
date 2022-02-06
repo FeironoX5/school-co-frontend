@@ -1,0 +1,22 @@
+<div *ngIf="router.url.includes('auth')" id="lines-container">
+  <div id="left-line" [ngClass]="{welcome: router.url == '/auth'}"></div>
+  <div id="right-line" [ngClass]="{welcome: router.url == '/auth'}"></div>
+</div>
+<div *ngIf="!router.url.includes('auth')" id="header">
+  <img id="logo" src="assets/logo-with-text.svg">
+  <div id="header-links">
+    <span class="header-link active">Главная</span>
+    <span class="header-link">Аналитика</span>
+    <span class="header-link">Поиск</span>
+  </div>
+  <div id="header-profile">
+    <img [src]="userData.profileImgUrl">
+    <div id="header-profile-text">
+      <span
+        style="font-weight: 700; font-size: 16px; margin-top: calc((60px - (18px + 16px))/2); line-height: 18px;">{{userData.fio.split(' ')[0]}} {{userData.fio.split(' ')[1][0]}}. {{userData.fio.split(' ')[2][0]}}.</span>
+      <span
+        style="opacity: 0.6; font-size: 15px; line-height: 16px;">{{userData.role == 0 && 'ученик' || 'учитель'}}</span>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

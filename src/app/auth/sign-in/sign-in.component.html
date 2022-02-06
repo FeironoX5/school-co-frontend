@@ -1,0 +1,12 @@
+<div class="nav-but-container">
+  <button class="nav-but" routerLink="/auth/sign-up">Нет аккаунта?</button>
+</div>
+
+<h1 class="form-title">Вход</h1>
+<form [formGroup]="authForm" class="form">
+  <input formControlName="email" placeholder="Почта">
+  <input formControlName="password" placeholder="Пароль">
+</form>
+
+<span class="next-but left" (click)="back()">Назад</span>
+<span class="next-but right" [ngClass]="{unactive: authForm.invalid}" (click)="next()">Дальше</span>
