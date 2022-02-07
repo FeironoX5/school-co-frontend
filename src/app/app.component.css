@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 
-#header-profile img {
+#header-profile-picture {
   height: 42px;
   width: 42px;
   object-fit: cover;

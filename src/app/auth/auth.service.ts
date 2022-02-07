@@ -50,12 +50,18 @@ export class AuthService {
     this.isAuthenticated = true;
     this.userData.setUserData('Флексов Аксолотль Аксолотлевич', 'Школа Лучшая в мире', 'helloworld@what.com', 'password', 0, 'https://pa1.narvii.com/7123/04cec3026d8df4859b32817994476c682e22b16fr1-848-954_hq.gif');
     // this.userData.setUserData(fio, school, email, password, 0, '');
-    this.router.navigateByUrl('dashboard');
+    this.router.navigateByUrl('profile');
+    // this.router.navigateByUrl('dashboard');
   }
 
   signOut() {
+    this.router.navigateByUrl('auth')
     this.isAuthenticated = false;
     this.userData.clearUserData();
   }
 
+  deleteAccount() {
+    // delete
+    this.signOut();
+  }
 }

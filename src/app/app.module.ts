@@ -13,6 +13,7 @@ import {AuthGuardService} from "./auth/auth-guard.service";
 import {AuthService} from "./auth/auth.service";
 import {HttpClientModule} from "@angular/common/http";
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     SignUpCodeComponent,
     AuthComponent,
     DashboardComponent,
-    AnalyticsComponent
+    AnalyticsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
       {path: 'auth/sign-up-code', component: SignUpCodeComponent},
       {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
       {path: 'analytics', component: AnalyticsComponent, canActivate: [AuthGuardService]},
+      {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
       {path: '**', redirectTo: 'dashboard', pathMatch: 'full'},
     ]),
     FormsModule,

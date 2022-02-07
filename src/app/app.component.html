@@ -9,13 +9,19 @@
     <span class="header-link" routerLink="analytics" routerLinkActive="active">Аналитика</span>
     <span class="header-link">Поиск</span>
   </div>
-  <div id="header-profile">
-    <img [src]="userData.profileImgUrl">
-    <div id="header-profile-text">
+  <div id="header-profile" routerLink="profile">
+    <div *ngIf="router.url == '/profile'">
+      <img src="assets/icons/logout.svg" style="height: calc(60px - 22px*2); margin-top: 22px; ">
+      <span style="line-height: 60px; vertical-align: top; margin-left: 7px; font-size: 15px">Выход</span>
+    </div>
+    <div *ngIf="router.url != '/profile'">
+      <img id="header-profile-picture" [src]="userData.profileImgUrl">
+      <div id="header-profile-text">
       <span
-        style="font-weight: 700; font-size: 16px; margin-top: calc((60px - (18px + 16px))/2); line-height: 18px;">{{userData.fio.split(' ')[0]}} {{userData.fio.split(' ')[1][0]}}. {{userData.fio.split(' ')[2][0]}}.</span>
-      <span
-        style="opacity: 0.6; font-size: 15px; line-height: 16px;">{{userData.role == 0 && 'ученик' || 'учитель'}}</span>
+        style="font-weight: 700; font-size: 16px; margin-top: calc((60px - (18px + 16px))/2); line-height: 18px;">{{userData.fio.split(' ')[0] + ' ' + userData.fio.split(' ')[1][0] + '. ' + userData.fio.split(' ')[2][0] + '.'}}</span>
+        <span
+          style="opacity: 0.6; font-size: 15px; line-height: 16px;">{{userData.role == 0 && 'ученик' || 'учитель'}}</span>
+      </div>
     </div>
   </div>
 </div>

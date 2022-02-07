@@ -10,7 +10,7 @@
     </div>
     <div id="action-results" style="width: 100%; height: 100%;">
       <p
-        style="font-size: 30px; width: 60vw; margin-left: 20vw">{{result.replace('том', 'том,').replace('Пост', 'Сочинение').replace('&quot;', '"')}}</p>
+        style="font-size: 30px; width: 60vw; margin-left: 20vw">{{result.replace('том', 'том,').replace('Пост', 'Сочинение').replace('пост', 'сочинение').replace('&quot;', '"')}}</p>
       <br>
       <button id="action-more-button" (click)="moreAction()">ещё раз</button>
     </div>
@@ -45,5 +45,23 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
       consequat.</p>
+  </div>
+  <h1 class="page-title">Сложные темы</h1>
+  <div id="task-cards-container">
+    <div *ngFor="let task of tasks" class="task-card" style="background: hsl({{task.color}}, 80%, 53%);">
+      <p style="font-size: 19px; margin: 0 18px; font-weight: 700; white-space: normal">{{task.title}}</p>
+      <div class="task-card-image"
+           style="background-image: linear-gradient(to right, hsla({{task.color}}, 95%, 75%, 0.5), hsla({{task.color}}, 95%, 75%, 0.5)), url('{{task.images[3]}}');"></div>
+      <div class="task-card-image"
+           style="background-image: linear-gradient(to right, hsla({{task.color}}, 95%, 75%, 0.5), hsla({{task.color}}, 95%, 75%, 0.5)), url('{{task.images[2]}}');"></div>
+      <div class="task-card-image"
+           style="background-image: linear-gradient(to right, hsla({{task.color}}, 95%, 75%, 0.5), hsla({{task.color}}, 95%, 75%, 0.5)), url('{{task.images[1]}}');"></div>
+      <div class="task-card-image"
+           style="background-image: linear-gradient(to right, hsla({{task.color}}, 95%, 75%, 0.5), hsla({{task.color}}, 95%, 75%, 0.5)), url('{{task.images[0]}}');"></div>
+    </div>
+  </div>
+  <h1 class="page-title" style="margin-bottom: 15px;">Недавние ошибки</h1>
+  <div id="error-cards-container">
+    <div *ngFor="let error of errors" class="error-card" style="background: url('{{error.image}}') center/cover no-repeat"></div>
   </div>
 </div>
